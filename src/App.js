@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import InventoryManagerAuth from "./Conponents/InventoryManagerAuth";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import ProtectedRoute from "./Conponents/ProtectedRoute";
+import Home from "./Conponents/Home";
+import Profile from "./Conponents/Profile";
+import IMenu from "./Conponents/Menu";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<InventoryManagerAuth />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path='/inventory' element={<IMenu />}>
+            <Route path='dashboard' element={<Home />} />
+            <Route path='profile' element={<Profile />} />
+          </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,11 @@
+npm i nodemon sequelize sequelize-cli mysql2
+
+npx sequelize-cli init
+
+npx sequelize-cli model:generate --name Inventory_Managers --attributes firstName:string,lastName:string,email:string,password:stringtring,password:string
+
+npx sequelize-cli db:migrate
+
+npx sequelize-cli seed:generate --name demo-user
+
+npx sequelize-cli db:seed:all

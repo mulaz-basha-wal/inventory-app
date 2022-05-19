@@ -1,38 +1,42 @@
-.App {
-  text-align: center;
+body {
+  background: #200122;
+  background: -webkit-linear-gradient(to right, #200122, #6f0000);
+  background: linear-gradient(to right, #200122, #6f0000);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mediacards {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
 }
-
-.App-link {
-  color: #61dafb;
+.product-data-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.profile_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.profile-table {
+  text-align: center;
+  margin: auto;
+  border-radius: 10px 10px 0px 0px;
+  max-width: 400px;
+  min-height: 300px;
+}
+.tables-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.company-name {
+  text-align: center;
+  font-weight: bold;
 }
