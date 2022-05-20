@@ -1,7 +1,12 @@
 const categoryModel = require("../models").Categories;
 
 exports.createCategory = async (req, res) => {
-  await categoryModel.create(req.body).then(
+  let payLoad = [];
+  Reflect.ownKeys(req.body).forEach((key) => {
+    payLoad = JSON.parse(key);
+  });
+  const name = payLoad.name;
+  await categoryModel.create({ name }).then(
     (category) => {
       res.status(200).json({ status: true, code: 200, category });
     },

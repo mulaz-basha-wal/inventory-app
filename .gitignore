@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /inventory-app-backend/node_modules
+/inventory-app-backend/uploads
 /.pnp
 .pnp.js
 

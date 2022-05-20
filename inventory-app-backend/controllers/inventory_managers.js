@@ -73,12 +73,19 @@ exports.logInInventoryManagers = (req, res) => {
 };
 
 exports.changePassword = async (req, res) => {
+  let payLoad = [];
+  Reflect.ownKeys(req.body).forEach((key) => {
+    payLoad = JSON.parse(key);
+  });
+  const oldpassword = payLoad.oldpassword;
+  const newpassword = payLoad.newpassword;
+  const username = payLoad.username;
   await inventoryManagersModel
     .findOne({
       where: {
         id: req.params.id,
-        username: req.body.username,
-        password: req.body.oldpassword,
+        username,
+        password: oldpassword,
       },
     })
     .then((record) => {
@@ -89,10 +96,7 @@ exports.changePassword = async (req, res) => {
       } else {
         try {
           inventoryManagersModel
-            .update(
-              { password: req.body.newpassword },
-              { where: { id: req.params.id } }
-            )
+            .update({ password: newpassword }, { where: { id: req.params.id } })
             .then(() => {
               res.status(200).json({
                 status: true,

@@ -80,6 +80,7 @@ export default function BasicSpeedDial(props) {
 
   const submitCategory = (e) => {
     e.preventDefault();
+    console.log(e.target.category_field.value);
     axios
       .post(
         "/categories",
@@ -100,6 +101,7 @@ export default function BasicSpeedDial(props) {
             severity: "success",
             message: "Category added successfully",
           });
+          setCategories([...categories, res.data.category]);
         }
       })
       .catch((error) => {
